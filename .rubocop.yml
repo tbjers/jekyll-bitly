@@ -1,0 +1,15 @@
+LineLength:
+  Enabled: false
+
+StringLiterals:
+  EnforcedStyle: double_quotes
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
