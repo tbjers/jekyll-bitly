@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors               = ["Torgny Bjers"]
   spec.email                 = ["torgny.bjers@gmail.com"]
 
-  spec.summary               = "Jekyll article bitly list tag"
-  spec.description           = "Generates an article bitly list from Markdown front-matter."
-  spec.homepage              = "https://github.com/tbjers/jekyll-bitly-plugin"
+  spec.summary               = "Jekyll Bit.ly filter"
+  spec.description           = "Jekyll filter that uses Bit.ly to shorten URLs."
+  spec.homepage              = "https://github.com/tbjers/jekyll-bitly"
   spec.license               = "MIT"
   spec.required_ruby_version = ">= 2.0.0"
 
