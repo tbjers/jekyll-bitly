@@ -11,7 +11,8 @@ module Jekyll
       Bitly.use_api_version_3
     end
 
-    @instance = BitlyFilterCache.new
+    # rubocop:disable Style/ClassVars
+    @@instance = BitlyFilterCache.new
 
     def self.instance
       @@instance
@@ -19,7 +20,7 @@ module Jekyll
 
     def shorten(input)
       input.strip!
-      return nil unless @username
+      return input unless @username
       return @result_cache[input] if @result_cache.key?(input)
       bitly = Bitly.new(@username, @key)
       u = bitly.shorten(input, history: 1)

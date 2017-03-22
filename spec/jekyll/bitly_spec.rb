@@ -1,13 +1,20 @@
 require "spec_helper"
 
 RSpec.describe Jekyll::BitlyFilter do
-  include Helpers
+  let(:output) do
+    render_liquid(content, "url" => url)
+  end
 
   it "has a version number" do
     expect(Jekyll::BitlyFilter::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(true).to eq(true)
+  context "No configuration" do
+    let(:url) { "http://www.example.com/" }
+    let(:content) { "{{ '#{url}' | bitly }}" }
+
+    it "returns the same URL" do
+      expect(output).to eq(url)
+    end
   end
 end

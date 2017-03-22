@@ -2,7 +2,6 @@ $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 
 require "bundler/setup"
 require "jekyll"
-require "support/jekyll"
 require "support/jekyll_template"
 require "jekyll-bitly"
 require "byebug" if RUBY_VERSION >= "2.0"
@@ -22,4 +21,9 @@ RSpec.configure do |config|
   config.filter_run_when_matching :focus
   config.disable_monkey_patching!
   config.default_formatter = "doc" if config.files_to_run.one?
+
+  def render_liquid(content, variables)
+    template = Liquid::Template.parse(content)
+    template.render(variables)
+  end
 end
