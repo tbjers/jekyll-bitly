@@ -5,6 +5,7 @@ module Jekyll
     def initialize
       @result_cache = {}
       config = Jekyll.configuration({})
+      return nil unless config && config["bitly"] && config["bitly"]["username"]
       @username = config["bitly"]["username"]
       @key = config["bitly"]["api_key"]
       Bitly.use_api_version_3
@@ -18,6 +19,7 @@ module Jekyll
 
     def shorten(input)
       input.strip!
+      return nil unless @username
       return @result_cache[input] if @result_cache.key?(input)
       bitly = Bitly.new(@username, @key)
       u = bitly.shorten(input, history: 1)

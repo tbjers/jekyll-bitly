@@ -2,6 +2,7 @@ $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 
 require "bundler/setup"
 require "jekyll"
+require "support/jekyll"
 require "support/jekyll_template"
 require "jekyll-bitly"
 require "byebug" if RUBY_VERSION >= "2.0"
