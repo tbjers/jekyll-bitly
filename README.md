@@ -33,6 +33,18 @@ Use the `bitly` tag in your Jekyll pages like this:
 [Bit.ly gem]({{ 'https://github.com/philnash/bitly' | bitly }})
 ```
 
+Get your API token from https://app.bitly.com/settings/api/
+After that there are two ways to setup the token
+1. Using Jekyll config: `_config.yml` (has more priority than the second one)
+
+```
+bitly:
+  token: xxxxxxxxxxxxxxxxxxxx
+```
+
+2. Using Environment Variable
+add `BITLY_TOKEN` to be available in your environment
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
