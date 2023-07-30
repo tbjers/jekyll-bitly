@@ -1,7 +1,7 @@
 require "bitly"
 require "singleton"
 require "dry-core"
-require 'dry/core/cache'
+require "dry/core/cache"
 
 module Jekyll
   class BitlyFilterCache
@@ -10,9 +10,12 @@ module Jekyll
 
     def initialize
       config = Jekyll.configuration({})
-      if config && config["bitly"] && config["bitly"]["token"]
-        @bitly_client = Bitly::API::Client.new(token: config["bitly"]["token"])
-      end
+      token = if config && config["bitly"] && config["bitly"]["token"]
+                config["bitly"]["token"]
+              else
+                ENV['BITLY_TOKEN']
+              end
+      @bitly_client = Bitly::API::Client.new(token: token) if token
     end
 
     def shorten(long_url)
